@@ -3,7 +3,7 @@ let acc = [...document.querySelectorAll(".accordion")]; //putting node list of a
 let pans = [...document.querySelectorAll(".panel")];
 let i;
 
-for (i = 0; i < acc.length; i++) {
+for (const [i, w] of acc.entries()) {
   acc[i].addEventListener("click", function () {
     /* Toggle between adding and removing the "active" class,
     to highlight the button that controls the panel */
@@ -19,7 +19,7 @@ for (i = 0; i < acc.length; i++) {
     // }
 
     //! Second way of change panel view
-    const pan = acc.indexOf(this);
+    const pan = acc.indexOf(w);
 
     if (pans[pan].style.maxHeight) {
       pans[pan].style.maxHeight = null;
@@ -28,3 +28,7 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+
+// for (const [i, el] of menu.entries()) {
+//   console.log(`${i + 1}: ${el}`);
+// }
